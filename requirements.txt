@@ -1,0 +1,38 @@
+--extra-index-url https://download.pytorch.org/whl/cu118
+
+# --- Deep Learning (PyTorch 2.1+ with CUDA 11.8) ---
+torch==2.1.2
+torchvision==0.16.2
+torchaudio==2.1.2
+einops==0.7.0             # Critical for Transformer tensor reshaping
+
+# --- Computer Vision ---
+opencv-python==4.9.0.80
+albumentations==1.4.0     # rigorous data augmentation
+timm==0.9.12              # Pretrained vision models (Vision Transformers)
+
+# --- Transformers & Attention ---
+transformers==4.37.2      # Hugging Face ecosystem
+tokenizers==0.15.2
+
+# --- Data Processing & Metrics ---
+numpy==1.26.4
+pandas==2.2.0
+scikit-learn==1.4.1.post1 # For calculating metrics (MAE, RMSE)
+matplotlib==3.8.3         # For plotting predictions
+
+# --- Experiment Tracking ---
+wandb==0.16.3             # Weights & Biases
+tqdm==4.66.2              # Progress bars
+
+# --- Deployment ---
+fastapi==0.109.2
+uvicorn==0.27.1           # ASI server for FastAPI
+pydantic==2.6.1           # Data validation
+
+# --- Development Tools ---
+pytest==8.0.2             # Testing framework
+black==24.2.0             # Code formatter
+jupyter==1.0.0            # Core Jupyter
+notebook==7.1.0           # Jupyter Notebook interface
+ipykernel==6.29.2         # Kernel for Jupyter

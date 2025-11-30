@@ -1,0 +1,47 @@
+--- Python & Environment ---
+
+pycache/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+--- Jupyter Notebooks ---
+
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+--- Machine Learning Artifacts (IMPORTANT) ---
+
+Ignore datasets to prevent repo bloat (GBs of video)
+
+data/
+!data/.gitkeep
+
+Ignore trained model weights (files can be >100MB)
+
+*.pth
+*.pt
+*.h5
+*.ckpt
+*.safetensors
+experiments/checkpoints/
+
+Ignore experiment logs
+
+wandb/
+runs/
+experiments/logs/
+*.log
+
+--- IDE & System ---
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
