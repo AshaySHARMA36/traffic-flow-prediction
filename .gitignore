@@ -1,6 +1,5 @@
---- Python & Environment ---
-
-pycache/
+# --- Python & Environment ---
+__pycache__/
 *.py[cod]
 *$py.class
 *.so
@@ -9,39 +8,34 @@ env/
 venv/
 .env
 
---- Jupyter Notebooks ---
-
+# --- Jupyter Notebooks ---
 .ipynb_checkpoints/
 */.ipynb_checkpoints/
 profile_default/
 ipython_config.py
 
---- Machine Learning Artifacts (IMPORTANT) ---
-
-Ignore datasets to prevent repo bloat (GBs of video)
-
+# --- Machine Learning Artifacts ---
+# Ignore processed data and logs
 data/
-!data/.gitkeep
+experiments/checkpoints/
+experiments/logs/
+wandb/
+runs/
+*.log
 
-Ignore trained model weights (files can be >100MB)
-
+# Ignore heavy model weights
 *.pth
 *.pt
 *.h5
 *.ckpt
 *.safetensors
-experiments/checkpoints/
 
-Ignore experiment logs
-
-wandb/
-runs/
-experiments/logs/
-*.log
-
---- IDE & System ---
-
+# --- IDE & System ---
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
+
+# --- Specific Heavy Datasets ---
+AICity22_Track1_MTMC_Tracking/
+london/
