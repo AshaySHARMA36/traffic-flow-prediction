@@ -4,6 +4,13 @@ All notable changes to the "Vision-Based Traffic Flow Prediction" project will b
 
 ## [Unreleased]
 
+## [Day 4] - 2025-12-03
+### Added
+- **Baseline Model:** Implemented `ConvLSTMCell` and `TrafficFlowPredictor` for spatiotemporal forecasting.
+- **Training Pipeline:** Created `src/train_baseline.py` with training, validation, and early stopping loops.
+- **Metrics:** Implemented MAE, RMSE, MAPE, and R2 score tracking.
+- **Architecture:** Designed a modular ConvLSTM system capable of stacking multiple layers.
+
 ## [Day 3] - 2025-12-02
 ### Added
 - **Computer Vision Pipeline:** Implemented `VideoProcessor` (resizing/normalization) and `VideoAugmentor` (Albumentations).
