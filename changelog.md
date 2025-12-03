@@ -4,6 +4,20 @@ All notable changes to the "Vision-Based Traffic Flow Prediction" project will b
 
 ## [Unreleased]
 
+## [Day 6] - 2025-12-05
+### Added
+- **Temporal Encoder:** Implemented `TemporalConvNet` (TCN) with dilated residual blocks.
+- **Benchmarking:** Analyzed TCN performance vs LSTM. TCN is **6x smaller** (0.3M vs 1.8M params) and faster.
+- **Integration:** Created `SpatioTemporalEncoder` to fuse ResNet50 spatial features with TCN temporal features.
+- **Architecture:** Validated exponential dilation (1, 2, 4) achieving 15-frame receptive field.
+
+## [Day 5] - 2025-12-04
+### Added
+- **Transformer Model:** Implemented `TrafficTransformer` in `src/models/transformer.py` for global temporal context.
+- **Attention Mechanism:** Integrated PyTorch's `TransformerEncoderLayer` for Multi-Head Self-Attention.
+- **Positional Encoding:** Added sinusoidal embeddings to preserve temporal order in the video sequence.
+- **Testing:** Verified Transformer forward pass and gradient stability with ResNet backbone.
+
 ## [Day 4] - 2025-12-03
 ### Added
 - **Baseline Model:** Implemented `ConvLSTMCell` and `TrafficFlowPredictor` for spatiotemporal forecasting.
