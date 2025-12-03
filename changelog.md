@@ -3,6 +3,13 @@
 All notable changes to the "Vision-Based Traffic Flow Prediction" project will be documented in this file.
 
 ## [Unreleased]
+## [Day 7] - 2025-12-06
+### Added
+- **Global Temporal Modeling:** Implemented `TemporalTransformer` to capture long-range dependencies using Multi-Head Self-Attention.
+- **Attention Mechanism:** Built `ScaledDotProductAttention` and `MultiHeadAttention` modules from scratch.
+- **Positional Encoding:** Implemented Sinusoidal Positional Embeddings to preserve sequence order in parallel processing.
+- **Visualization:** Added tools to visualize attention maps (`visualize_multi_head_attention`) to debug model focus.
+- **Architecture:** Stacked Transformer Encoder blocks with Pre-Norm architecture for stable training.
 
 ## [Day 6] - 2025-12-05
 ### Added
