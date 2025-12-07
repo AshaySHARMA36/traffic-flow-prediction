@@ -1,0 +1,66 @@
+
+    ╔════════════════════════════════════════════════════════════════╗
+    ║         DUAL-STREAM SPATIO-TEMPORAL TRANSFORMER                ║
+    ╚════════════════════════════════════════════════════════════════╝
+    
+    Input Video Sequence
+    (Batch, Time=16, Channels=3, Height=224, Width=224)
+            │
+            ├──────────────────────────────────────────────┐
+            │                                              │
+            ▼                                              │
+    ┏━━━━━━━━━━━━━━━━━━━━━┓                              │
+    ┃  SPATIAL ENCODER    ┃                              │
+    ┃  ─────────────────  ┃                              │
+    ┃  • ResNet18         ┃                              │
+    ┃  • Frozen Backbone  ┃                              │
+    ┃  • Feature: 512-dim ┃                              │
+    ┗━━━━━━━━━━━━━━━━━━━━━┛                              │
+            │                                              │
+            │ Spatial Features (B, T, 512)                 │
+            │                                              │
+            ▼                                              │
+    ┏━━━━━━━━━━━━━━━━━━━━━┓                              │
+    ┃  TEMPORAL CNN       ┃                              │
+    ┃  ──────────────     ┃                              │
+    ┃  • Dilated Conv     ┃                              │
+    ┃  • Layers: [64,128] ┃                              │
+    ┃  • RF: ~15 frames   ┃                              │
+    ┗━━━━━━━━━━━━━━━━━━━━━┛                              │
+            │                                              │
+            │ Local Features (B, T, 256)                   │
+            │                                              │
+            ▼                                              │
+    ┏━━━━━━━━━━━━━━━━━━━━━┓                              │
+    ┃  TRANSFORMER        ┃                              │
+    ┃  ──────────────     ┃                              │
+    ┃  • 2 Layers         ┃                              │
+    ┃  • 4 Heads          ┃                              │
+    ┃  • Global Attention ┃                              │
+    ┗━━━━━━━━━━━━━━━━━━━━━┛                              │
+            │                                              │
+            │ Global Features (B, T, 256)                  │
+            │                                              │
+            └──────────────────┬────────────────────────────┘
+                               │
+                               ▼
+                        ┏━━━━━━━━━━━━━━┓
+                        ┃ FUSION MODULE ┃
+                        ┃ ───────────── ┃
+                        ┃ Cross-Attn    ┃
+                        ┗━━━━━━━━━━━━━━┛
+                               │
+                               │ Fused Features (B, T, 256)
+                               │
+                               ▼
+                        ┏━━━━━━━━━━━━━━┓
+                        ┃ PREDICTION HD ┃
+                        ┃ ───────────── ┃
+                        ┃ • Pooling     ┃
+                        ┃ • FC Layers   ┃
+                        ┗━━━━━━━━━━━━━━┛
+                               │
+                               ▼
+                    Traffic Flow Prediction
+                         (Batch, 1)
+    

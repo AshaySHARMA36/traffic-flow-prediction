@@ -3,6 +3,13 @@
 All notable changes to the "Vision-Based Traffic Flow Prediction" project will be documented in this file.
 
 ## [Unreleased]
+## [Day 8] - 2025-12-07
+### Added
+- **Dual-Stream Architecture:** Implemented `DualStreamSpatioTemporalTransformer` fusing ResNet spatial features with TCN/Transformer temporal features.
+- **Fusion Module:** Created flexible fusion strategies (`concat`, `cross_attn`, `gated`) to combine visual and temporal streams.
+- **Model Analysis:** Added `src/utils/model_summary.py` for parameter counting, memory profiling, and ASCII architecture visualization.
+- **Verification:** Confirmed model fits in <1GB VRAM for training and has ~2.8M trainable parameters.
+
 ## [Day 7] - 2025-12-06
 ### Added
 - **Global Temporal Modeling:** Implemented `TemporalTransformer` to capture long-range dependencies using Multi-Head Self-Attention.

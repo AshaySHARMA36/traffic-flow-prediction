@@ -1,0 +1,17 @@
+fusion:
+  type: cross_attn
+prediction:
+  dropout: 0.1
+  num_classes: 1
+spatial_encoder:
+  backbone: resnet18
+  feature_dim: 512
+  freeze_backbone: true
+temporal_processing:
+  d_model: 256
+  num_heads: 4
+  tcn_hidden_dims:
+  - 64
+  - 128
+  - 256
+  transformer_layers: 2
